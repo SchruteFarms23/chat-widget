@@ -1,10 +1,9 @@
-import React, {Component} from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react'
 import WidgetHeader from '../WidgetHeader'
+import ChatListContainer from '../containers/ChatListContainer'
 
 const container = {
   width: '490px',
-  height: '500px',
   background: '#F2F5F8',
   borderRadius: '10px',
   margin: 'auto',
@@ -13,12 +12,13 @@ const container = {
   font: '20px Ubuntu, sans-serif'
 }
 
-export default class WidgetContainer extends Component{
-  render(){
+const WidgetLayout = () => {
     return(
       <div style={container}>
         <WidgetHeader />
+        <ChatListContainer />
       </div>
     )
-  }
 }
+
+export default WidgetLayout;
