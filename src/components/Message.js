@@ -9,7 +9,8 @@ const userMessage = {
       width: '60%',
       position: 'relative',
       background: '#87CEFA',
-      float: 'right'
+      float: 'right',
+      textAlign:'left'
 }
 const botMessage = {
       color: 'white',
@@ -21,7 +22,8 @@ const botMessage = {
       width: '60%',
       position: 'relative',
       background: '#83E32F',
-      float:'left'
+      float:'left',
+      textAlign:'left'
 }
 
 
