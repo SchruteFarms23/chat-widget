@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Messages from '../Messages';
 
 const chatListStyle = {
+  padding: '30px 30px 20px',
   borderBottom: '5px solid white',
   overflowY: 'scroll',
   height: '400px'

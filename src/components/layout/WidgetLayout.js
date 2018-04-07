@@ -8,7 +8,6 @@ const container = {
   borderRadius: '10px',
   margin: 'auto',
   marginTop: '50px',
-  color: '#00CED1',
   font: '20px Ubuntu, sans-serif'
 }
 
