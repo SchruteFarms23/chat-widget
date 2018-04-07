@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
-import WidgetContainer from './components/containers/WidgetContainer';
+import WidgetLayout from './components/layout/WidgetLayout';
 
 
 class App extends Component {
@@ -13,7 +13,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <WidgetContainer />
+        <WidgetLayout />
       </div>
     );
   }
