@@ -1,4 +1,5 @@
 import React from 'react'
+
 const userMessage = {
       color: 'white',
       padding: '18px 20px',
@@ -30,7 +31,7 @@ const botMessage = {
 
 const Message = ({content}) =>{
   return(
-      <div style={content.type === "bot" ? botMessage : userMessage} >
+      <div className="clearfix" style={content.type === "bot" ? botMessage : userMessage} >
         {content.message}
       </div>
   )
