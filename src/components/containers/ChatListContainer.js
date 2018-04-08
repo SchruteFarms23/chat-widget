@@ -10,6 +10,7 @@ const chatListStyle = {
 }
 
 class ChatListContainer extends Component{
+
   render(){
     console.log(this.props)
     return(
