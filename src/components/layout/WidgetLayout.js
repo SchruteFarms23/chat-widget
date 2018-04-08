@@ -1,6 +1,7 @@
 import React from 'react'
 import WidgetHeader from '../WidgetHeader'
 import ChatListContainer from '../containers/ChatListContainer'
+import TextBox from '../TextBox'
 
 const container = {
   width: '490px',
@@ -16,6 +17,7 @@ const WidgetLayout = () => {
       <div style={container}>
         <WidgetHeader />
         <ChatListContainer />
+        <TextBox />
       </div>
     )
 }
