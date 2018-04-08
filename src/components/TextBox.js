@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
+import addUserMessage from '../actions/messageActions'
 
 const sectionPadding ={
   padding: '20px'
@@ -24,25 +25,36 @@ class TextBox extends Component{
       message: e.target.value
     })
   }
-  
-  send = (e) =>{
-    if(e.key === 'Enter'){
-      console.log(e.target.value,this.state.message, "it worked")
-      this.setState({
-        message: ""
-      })
-    }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const message = this.state.message
+    this.props.addUserMessage(message)
+    this.setState({
+          message: ""
+    })
   }
+
   render(){
     return(
+
       <div style={sectionPadding} >
-        <textarea  style={textAreaStyle} placeholder="Type message here" rows="3" value={this.state.message} onKeyPress={this.send} onChange={this.handleChange}>
-        </textarea>
-        <button> SEND </button>
+        <form onSubmit={this.handleSubmit}>
+          <textarea  style={textAreaStyle} placeholder="Type message here" rows="3" value={this.state.message} onKeyPress={(e) => {if(e.key === 'Enter'){this.handleSubmit(e)}}} onChange={this.handleChange} />
+          <button type="submit" value="Submit"> SEND </button>
+        </form>
       </div>
 
     )
   }
 }
 
-export default connect()(TextBox);
+function mapDispatchToProps(dispatch){
+  return{
+    addUserMessage: (message) => {
+      dispatch(addUserMessage(message))
+    }
+  }
+}
+
+export default connect(null,mapDispatchToProps)(TextBox);
