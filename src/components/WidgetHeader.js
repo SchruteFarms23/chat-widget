@@ -3,7 +3,7 @@ import React from 'react'
 const header = {
   padding: '20px',
   borderBottom: '5px solid white',
-  backgroundColor: '#1E90FF',
+  backgroundColor: '#40b4e5',
   borderTopRightRadius: '10px',
   borderTopLeftRadius: '10px',
   color: '#FFFFFF'
