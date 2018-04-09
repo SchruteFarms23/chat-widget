@@ -9,7 +9,7 @@ const userMessage = {
       marginBottom: '30px',
       width: '60%',
       position: 'relative',
-      background: '#87CEFA',
+      background: '#40b4e5',
       float: 'right',
       textAlign:'left'
 }

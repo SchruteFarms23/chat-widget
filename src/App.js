@@ -20,3 +20,6 @@ class App extends Component {
 }
 
 export default connect()(App);
+
+//API key: ObrlkAALBoMK0N4Vl6ngHFGu2gHhO_sdsjDmxLvJkRWnfcfRKdWK3X5xWGSaPL8-q2Y9GADK3JsIXu8t8JhjqEuJJxIZCUXObvhlP_IVMoWmHvShRCVUKiHyBGbKWnYx
+//client id: iqtvLc_WWdUNKt7Qi2lezQ

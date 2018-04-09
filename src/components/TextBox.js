@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
-import addUserMessage from '../actions/messageActions'
+import {addUserMessage,addBotMessage} from '../actions/messageActions'
 
 const sectionPadding ={
   padding: '20px'
@@ -28,8 +28,12 @@ class TextBox extends Component{
 
   handleSubmit = (e) => {
     e.preventDefault()
-    const message = this.state.message
-    this.props.addUserMessage(message)
+    const time = new Date()
+    console.log(time.getHours())
+    const userMessage = this.state.message
+    const botMessage = "Thanks for asking!"
+    this.props.addUserMessage(userMessage)
+    this.props.addBotMessage(botMessage)
     this.setState({
           message: ""
     })
@@ -53,6 +57,9 @@ function mapDispatchToProps(dispatch){
   return{
     addUserMessage: (message) => {
       dispatch(addUserMessage(message))
+    },
+    addBotMessage: (message) => {
+      dispatch(addBotMessage(message))
     }
   }
 }
