@@ -1,4 +1,5 @@
 import React from 'react'
+import YelpResult from './YelpResult'
 
 const userMessage = {
       color: 'white',
@@ -30,11 +31,21 @@ const botMessage = {
 
 
 const Message = ({content}) =>{
+  if(content.type === "yelp"){
+    const yelpResults = content.message.map((res => <YelpResult details={res} /> ))
+    return(
+      <div >
+      {yelpResults}
+      </div>
+    )
+
+  }else{
   return(
       <div className="clearfix" style={content.type === "bot" ? botMessage : userMessage} >
         {content.message}
       </div>
   )
+  }
 }
 
 export default Message;

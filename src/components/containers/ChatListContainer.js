@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import Messages from '../Messages';
 
@@ -9,13 +10,25 @@ const chatListStyle = {
   height: '400px'
 }
 
+const scrollToBottom = () => {
+  const messagesDiv = document.getElementById('messages');
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+
 class ChatListContainer extends Component{
+
+
+  componentDidUpdate() {
+    scrollToBottom()
+  }
+
 
   render(){
     console.log(this.props)
     return(
-      <div style={chatListStyle} >
+      <div id="messages" style={chatListStyle} >
         <Messages list={this.props.list} />
+
       </div>
     )
   }
