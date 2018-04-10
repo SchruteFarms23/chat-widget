@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
-import {addUserMessage,addBotMessage} from '../actions/messageActions'
+import {addUserMessage,addBotMessage,fetchYelpResults} from '../actions/messageActions'
 
 const sectionPadding ={
   padding: '20px'
@@ -17,7 +17,9 @@ const textAreaStyle = {
 class TextBox extends Component{
 
   state = {
-    message: ""
+    message: "",
+    food:null,
+    location:null
   }
 
   handleChange = (e) => {
@@ -28,14 +30,29 @@ class TextBox extends Component{
 
   handleSubmit = (e) => {
     e.preventDefault()
-    const time = new Date()
-    console.log(time.getHours())
+    // const time = new Date()
+    // console.log(time.getHours())
     const userMessage = this.state.message
     const botMessage = "Thanks for asking!"
+
     this.props.addUserMessage(userMessage)
+    const params = {food:userMessage, location:"new york"}
+    this.props.fetchYelpResults(params)//.then
     this.props.addBotMessage(botMessage)
     this.setState({
           message: ""
+    })
+  }
+
+  handleFetch = (message) => {
+    const body= JSON.stringify(message)
+    fetch("http://localhost:3000/api/v1/categories/yelp",{
+      method: 'post',
+      body: body,
+      headers: {
+        "Accept":"application/json",
+        "Content-Type":"application/json"
+      }
     })
   }
 
@@ -60,6 +77,9 @@ function mapDispatchToProps(dispatch){
     },
     addBotMessage: (message) => {
       dispatch(addBotMessage(message))
+    },
+    fetchYelpResults: (message) => {
+      dispatch(fetchYelpResults(message))
     }
   }
 }

@@ -12,9 +12,26 @@ export function addBotMessage(message){
   }
 }
 
-export function addBotYelpMessage(message){
+export function addBotYelpMessage(yelpResults){
   return{
     type:"ADD_BOT_YELP_MESSAGE",
-    payload:{type:'yelp'}
+    payload:{type:'yelp',message:yelpResults} //make sure this is ok
+  }
+}
+
+
+export function fetchYelpResults(params){
+  return function(dispatch){
+      const body= JSON.stringify(params)
+      fetch("http://localhost:3000/api/v1/yelps/fetch",{
+        method: 'post',
+        body: body,
+        headers: {
+          "Accept":"application/json",
+          "Content-Type":"application/json"
+        }
+      })
+      .then(res => res.json())
+      .then(yelpResults => dispatch(addBotYelpMessage(yelpResults)))
   }
 }
